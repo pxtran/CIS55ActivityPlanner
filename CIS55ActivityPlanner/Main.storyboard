@@ -7,7 +7,7 @@
         <!--Activity Planner-->
         <scene sceneID="uMf-yx-ay6">
             <objects>
-                <collectionViewController id="edY-Ei-qKB" customClass="CalendarViewControllerCollectionViewController" customModule="CIS55_ActivityPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="edY-Ei-qKB" customClass="CalendarViewControllerCollectionViewController" customModule="CIS55ActivityPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="g3b-Aw-pj0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarCell" id="i8D-2z-28c" customClass="CalanderCollectionViewCell" customModule="CIS55_ActivityPlanner" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarCell" id="i8D-2z-28c" customClass="CalanderCollectionViewCell" customModule="CIS55ActivityPlanner" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Activity Planner" id="e82-hM-jWi">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="ruc-Mx-5E1">
                             <connections>
-                                <segue destination="pnA-m0-NTT" kind="push" identifier="goToEventForm" id="E7o-zi-7g9"/>
+                                <segue destination="pnA-m0-NTT" kind="modal" identifier="goToEventForm" id="E7o-zi-7g9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,7 +60,7 @@
         <!--Event Form View Controller-->
         <scene sceneID="PVi-Mp-L7M">
             <objects>
-                <viewController id="pnA-m0-NTT" customClass="EventFormViewController" customModule="CIS55_ActivityPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pnA-m0-NTT" customClass="EventFormViewController" customModule="CIS55ActivityPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j15-rZ-qJh"/>
                         <viewControllerLayoutGuide type="bottom" id="an2-MF-5g7"/>

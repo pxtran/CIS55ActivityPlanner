@@ -12,20 +12,27 @@ import QuartzCore
 
 let reuseIdentifier = "calendarCell"
 
-class CalendarViewControllerCollectionViewController: UICollectionViewController {
+class CalendarViewControllerCollectionViewController: UICollectionViewController, NSCoding {
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     var events: [Event] = []
     var cellMap = Dictionary<Int, String>()
     var dayOffsetMap = Dictionary<String, Int>()
+    var eventMap = Dictionary<String, Event>()
+    var selectedEvents: [Event] = []
+    var selectedIndex: Int!
 
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let fetchRequest = NSFetchRequest(entityName: "Event")
+        /*let fetchRequest = NSFetchRequest(entityName: "Event")
         var e: NSError?
 
         self.events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
@@ -33,6 +40,9 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
         if e != nil {
             println("Failed to retrieve record: \(e!.localizedDescription)")
         }
+
+        dayOffsetMap.removeAll(keepCapacity: false)
+        cellMap.removeAll(keepCapacity: false)
 
         for i in 0...6 {
             dayOffsetMap[days[i]] = i
@@ -43,21 +53,20 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
 
         for event in events {
             let dayOffset = dayOffsetMap[event.day]
+
             for time in Int(event.time_start)...(Int(event.time_end) - 1) {
+                //println(time)
                 var index = (startingIndex + dayOffset!) + (time * 8)
 
-                if index == 0 {
-                    index = startingIndex
-                }
                 if let eventNames = cellMap[index] {
                     cellMap[index] = eventNames + "\n" + event.name
                     //self.collectionViewLayout.
                 } else {
                     cellMap[index] = event.name
-                    println(event.name)
                 }
             }
-        }
+            eventMap[event.name] = event
+        }*/
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -80,13 +89,14 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
         let fetchRequest = NSFetchRequest(entityName: "Event")
         var e: NSError?
 
-        cellMap.removeAll(keepCapacity: false)
-
         self.events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
 
         if e != nil {
             println("Failed to retrieve record: \(e!.localizedDescription)")
         }
+
+        cellMap.removeAll(keepCapacity: false)
+        dayOffsetMap.removeAll(keepCapacity: false)
 
         for i in 0...6 {
             dayOffsetMap[days[i]] = i
@@ -98,22 +108,20 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
         for event in events {
             let dayOffset = dayOffsetMap[event.day]
             for time in Int(event.time_start)...(Int(event.time_end) - 1) {
-                var index = (startingIndex + dayOffset!) * time
+                var index = (startingIndex + dayOffset!) + (time * 8)
 
-                if index == 0 {
-                    index = startingIndex
-                }
                 if let eventNames = cellMap[index] {
                     cellMap[index] = eventNames + "\n" + event.name
                     //self.collectionViewLayout.
                 } else {
                     cellMap[index] = event.name
-                    println(event.name)
                 }
             }
+            eventMap[event.name] = event
         }
 
-        println("viewDidAppear")
+        self.collectionView?.reloadData()
+
 
     }
 
@@ -192,9 +200,9 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
             cell.cellText.textColor = UIColor.blackColor()
 
             if let eventNames = cellMap[index] {
-                    cell.cellText.text = eventNames
+                cell.cellText.text = eventNames
             } else {
-                    cell.cellText.text = ""
+                cell.cellText.text = ""
             }
         }
 
@@ -202,17 +210,24 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
     }
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as CalanderCollectionViewCell
 
         let index = indexPath.row
 
         if (index >= 0 && index <= 7) || index % 8 == 0 {
             //do nothing
         } else {
-            cell?.layer.backgroundColor = UIColor.lightTextColor().CGColor
+            selectedEvents.removeAll(keepCapacity: false)
+            cell.layer.backgroundColor = UIColor.lightTextColor().CGColor
+            let cellT = String(cell.cellText.text!)
+            let eventsplit = split(cellT) {$0 == "\n"}
+            for event in eventsplit {
+                let e: Event = eventMap[event]!
+                selectedEvents.append(e)
+            }
+            selectedIndex = index
         }
 
-        println(index)
     }
 
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -226,7 +241,15 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToEventForm" {
+            let viewCont = segue.destinationViewController as EventFormViewController
 
+            if selectedEvents.count > 0 {
+                viewCont.eventsPassed = selectedEvents
+            } else {
+                if selectedIndex != nil {
+                    viewCont.indexPassed = selectedIndex
+                }
+            }
         }
     }
 

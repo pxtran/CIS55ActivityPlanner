@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, NSCoding {
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var times: [String] = []
@@ -28,6 +28,14 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var saveButton: UIButton!
     var currentPicker: UIPickerView!
+
+    var name: String!
+    var date: String!
+    var start: String!
+    var end: String!
+    var descr: String!
+    var eventsPassed: [Event]!
+    var indexPassed: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,18 +56,58 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         attachPickerToTextField(startTimeText, picker: startTimePicker)
         attachPickerToTextField(endTimeText, picker: endTimePicker)
 
+        if (eventsPassed != nil) {
+            let currentEvent = eventsPassed[0]
+            self.eventName.text = currentEvent.name
+            self.descriptionText.text = currentEvent.details
+            self.dateText.text = currentEvent.day
+            self.startTimeText.text = getTimeFromFloat(currentEvent.time_start)
+            self.endTimeText.text = getTimeFromFloat(currentEvent.time_end)
+
+        } else if indexPassed != nil {
+            if indexPassed % 8 > 0 && indexPassed > 8 {
+                self.dateText.text = days[(indexPassed % 8) - 1]
+                let timeOffset = indexPassed/8
+
+                if timeOffset == 1 {
+                    self.startTimeText.text = "12 AM"
+                    self.endTimeText.text = "1 AM"
+                } else if timeOffset == 13 {
+                    self.startTimeText.text = "12 PM"
+                    self.endTimeText.text = "1 PM"
+                } else if timeOffset > 12 {
+                    self.startTimeText.text = "\(timeOffset - 12)  PM"
+                    self.endTimeText.text = "\(timeOffset - 11) PM"
+                } else {
+                    self.startTimeText.text = "\(timeOffset - 1)  AM"
+                    self.endTimeText.text = "\(timeOffset) AM"
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
-    /*required init(coder aDecoder: NSCoder) {
-        super.init()
-        //fatalError("init(coder:) has not been implemented")
-    }*/
+    func getTimeFromFloat(index: NSNumber) -> String {
+        if index == 0 {
+            return "12 AM"
+        } else if index == 12 {
+            return "12 PM"
+        } else if index.integerValue < 11 {
+            return "\(index) AM"
+        } else {
+            return "\(index.integerValue - 12) PM"
+        }
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     func attachPickerToTextField(textField: UITextField, picker: UIPickerView) {
         picker.dataSource = self
@@ -128,9 +176,10 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
 
     @IBAction func pressedCancel(sender: AnyObject) {
-        if let navController = self.navigationController {
+        /*if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
-        }
+        }*/
+        self.dismissViewControllerAnimated(Bool(true), completion: nil)
     }
 
 
@@ -158,9 +207,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
             return
         }
 
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
-        }
+        self.dismissViewControllerAnimated(Bool(true), completion: nil)
 
     }
 
