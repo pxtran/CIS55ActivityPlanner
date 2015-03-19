@@ -219,9 +219,41 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
 
     @IBAction func pressedSave(sender: AnyObject) {
 
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        var e: NSError?
+
+
+        var events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
+
+        if e != nil {
+            println("Failed to retrieve record: \(e!.localizedDescription)")
+        }
+
+        if eventsPassed != nil {
+            for event in events {
+                if event.name == eventsPassed[0].name {
+                    managedObjectContext!.deleteObject(event)
+
+                    if managedObjectContext!.save(&e) != true {
+                        println("delete error: \(e?.localizedDescription)")
+                    }
+                    //events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
+                    break
+                }
+
+            }
+        }
+
+
         let myMOC = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
+
+        var eventNameStr = self.eventName.text
+
+        if(eventNameStr == ""){ return }
+
         eventItem = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: myMOC!) as Event
+
 
         var startTimeFloat: Double!
         var endTimeFloat: Double!
@@ -242,7 +274,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         }
 
         self.dismissViewControllerAnimated(Bool(true), completion: nil)
-
+        
     }
 
     func getFloatFromTime(time: String) -> Double {
