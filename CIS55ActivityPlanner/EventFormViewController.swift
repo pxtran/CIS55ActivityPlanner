@@ -15,6 +15,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var times: [String] = []
 
     var eventItem: Event!
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
     @IBOutlet var datePicker: UIPickerView!
     @IBOutlet var startTimePicker: UIPickerView!
@@ -175,6 +176,32 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         return false
     }
 
+    @IBAction func pressedDelete(sender: AnyObject) {
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        var e: NSError?
+
+
+        var events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
+
+        if e != nil {
+            println("Failed to retrieve record: \(e!.localizedDescription)")
+        }
+
+        if eventsPassed != nil {
+            for event in events {
+                if event.name == eventsPassed[0].name {
+                    managedObjectContext!.deleteObject(event)
+                    //events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
+                    break
+                }
+            }
+        }
+
+        self.dismissViewControllerAnimated(Bool(true), completion: nil)
+
+    }
+
+    
     @IBAction func pressedCancel(sender: AnyObject) {
         /*if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
