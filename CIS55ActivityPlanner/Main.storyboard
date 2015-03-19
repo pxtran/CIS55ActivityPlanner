@@ -177,6 +177,7 @@
                         <outlet property="cancelButton" destination="qF3-pQ-fog" id="iE9-Rq-x01"/>
                         <outlet property="datePicker" destination="RAs-na-zwh" id="MFz-5E-o1W"/>
                         <outlet property="dateText" destination="4SG-oG-RdW" id="BcI-PD-rKf"/>
+                        <outlet property="deleteButton" destination="1ke-PE-asG" id="PCK-qy-gz8"/>
                         <outlet property="descriptionText" destination="M1z-3e-KGe" id="fsc-fq-b0R"/>
                         <outlet property="endTimePicker" destination="tZD-5h-Iwr" id="zDQ-Js-7My"/>
                         <outlet property="endTimeText" destination="dFW-GZ-neh" id="ZGd-en-0Bo"/>

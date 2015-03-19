@@ -28,6 +28,8 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
 
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var saveButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
+    
     var currentPicker: UIPickerView!
 
     var name: String!
@@ -66,6 +68,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
             self.endTimeText.text = getTimeFromFloat(currentEvent.time_end)
 
         } else if indexPassed != nil {
+            deleteButton.enabled = false
             if indexPassed % 8 > 0 && indexPassed > 8 {
                 self.dateText.text = days[(indexPassed % 8) - 1]
                 let timeOffset = indexPassed/8
@@ -191,6 +194,10 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
             for event in events {
                 if event.name == eventsPassed[0].name {
                     managedObjectContext!.deleteObject(event)
+
+                    if managedObjectContext!.save(&e) != true {
+                        println("delete error: \(e?.localizedDescription)")
+                    }
                     //events = managedObjectContext!.executeFetchRequest(fetchRequest, error: &e) as [Event]
                     break
                 }
