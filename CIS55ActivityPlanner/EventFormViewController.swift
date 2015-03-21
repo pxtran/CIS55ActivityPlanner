@@ -176,6 +176,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         self.descriptionText.alpha = 0
         self.cancelButton.alpha = 0
         self.saveButton.alpha = 0
+        self.deleteButton.alpha = 0
 
         return false
     }
@@ -326,6 +327,7 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         self.cancelButton.alpha = 1
         self.saveButton.alpha = 1
         self.descriptionText.alpha = 1
+        self.deleteButton.alpha = 1
     }
     /*
     // MARK: - Navigation
