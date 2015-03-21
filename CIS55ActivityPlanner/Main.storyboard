@@ -220,7 +220,7 @@
                                     <action selector="pressedSave:" destination="pnA-m0-NTT" eventType="touchUpInside" id="3Zt-My-TAK"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Detail" translatesAutoresizingMaskIntoConstraints="NO" id="M1z-3e-KGe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter Event details" translatesAutoresizingMaskIntoConstraints="NO" id="M1z-3e-KGe">
                                 <rect key="frame" x="40" y="376" width="240" height="93"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
