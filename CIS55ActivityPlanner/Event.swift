@@ -16,5 +16,6 @@ class Event:NSManagedObject{
     @NSManaged var time_start:NSNumber!
     @NSManaged var time_end:NSNumber!
     @NSManaged var details:String!
+    @NSManaged var color:String!
     
 }

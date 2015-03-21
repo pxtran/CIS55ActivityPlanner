@@ -12,6 +12,7 @@ import CoreData
 class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, NSCoding {
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let colors = ["blue", "green", "yellow", "orange", "purple", "cyan", "magenta"]
     var times: [String] = []
 
     var eventItem: Event!
@@ -250,10 +251,14 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
 
         var eventNameStr = self.eventName.text
 
-        if(eventNameStr == ""){ return }
-
-        eventItem = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: myMOC!) as Event
-
+        if(eventNameStr == ""){
+            let alert = UIAlertView()
+            alert.title = "Error"
+            alert.message = "Please supply a valid event name!"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+            return
+        }
 
         var startTimeFloat: Double!
         var endTimeFloat: Double!
@@ -261,11 +266,25 @@ class EventFormViewController: UIViewController, UIPickerViewDataSource, UIPicke
         startTimeFloat = getFloatFromTime(self.startTimeText.text)
         endTimeFloat = getFloatFromTime(self.endTimeText.text)
 
+        if startTimeFloat > endTimeFloat {
+            let alert = UIAlertView()
+            alert.title = "Error"
+            alert.message = "The start time cannot be greater than the end time!"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+
+            return
+        }
+
+        eventItem = NSEntityDescription.insertNewObjectForEntityForName("Event", inManagedObjectContext: myMOC!) as Event
+
         eventItem.name = self.eventName.text
         eventItem.time_start = startTimeFloat
         eventItem.time_end = endTimeFloat
         eventItem.day = self.dateText.text
         eventItem.details = self.descriptionText.text
+        let index = Int(arc4random()) % colors.count
+        eventItem.color = colors[index]
 
         var saveErr: NSError?
         if myMOC!.save(&saveErr) != true {

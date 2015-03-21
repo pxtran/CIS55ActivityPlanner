@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lfw-lz-lOO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1i3-ru-eGe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -57,26 +57,123 @@
             </objects>
             <point key="canvasLocation" x="554" y="275"/>
         </scene>
+        <!--About the App/Developers-->
+        <scene sceneID="4eB-EK-GIC">
+            <objects>
+                <viewController id="lVe-wx-NsM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f8p-eL-H8d"/>
+                        <viewControllerLayoutGuide type="bottom" id="htz-EE-yNG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IoW-hY-wa4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-Fz-Psf">
+                                <rect key="frame" x="8" y="200" width="66" height="82"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFc-LN-Gmd">
+                                <rect key="frame" x="84" y="75" width="231" height="107"/>
+                                <string key="text">This App enables you to schedule weekly activities by inserting, updating, and deleting events. This is particularly useful for scheduling repeating events such as classes, work shifts, etc.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FallayeDiallo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ouv-ZY-ts5">
+                                <rect key="frame" x="6" y="300" width="81" height="73"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DeAnzaLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="zYz-CG-eiN">
+                                <rect key="frame" x="0.0" y="72" width="76" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-bh-pZr">
+                                <rect key="frame" x="87" y="195" width="214" height="80"/>
+                                <string key="text">Peter Tran is a Software Engineer at NASA Ames Research Center. He enjoys playing video games, watching TV shows and movies, and learning about new technologies.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nw2-Ze-F12">
+                                <rect key="frame" x="95" y="270" width="214" height="122"/>
+                                <string key="text">I am Fallaye Diallo a CS student at De Anza pursuing a few certificates. You can check out my first app on Google Play by searching my first and last name.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headshot.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="csv-0o-1eT">
+                                <rect key="frame" x="6" y="412" width="66" height="53"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-5K-SQG">
+                                <rect key="frame" x="85" y="400" width="219" height="102"/>
+                                <string key="text">Frank Yeh is a part-time student at DeAnza College and sales associate at Macy's. He is a former transportation planner who is aquiring programming skills to help solve public policy problems through technology.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About the App/Developers" id="YXl-s2-wxr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpc-5e-iyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="964"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fXl-JC-wtm">
+            <objects>
+                <tabBarController id="1i3-ru-eGe" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Mq7-j7-wvW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lfw-lz-lOO" kind="relationship" relationship="viewControllers" id="2kk-MH-hEf"/>
+                        <segue destination="1k9-rq-34P" kind="relationship" relationship="viewControllers" id="5se-Cg-Cug"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWw-a1-MDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="630"/>
+        </scene>
+        <!--AboutNav-->
+        <scene sceneID="7yU-3Y-ILT">
+            <objects>
+                <navigationController title="AboutNav" id="1k9-rq-34P" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="second" id="z1v-vL-7rc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PeO-TA-JA8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lVe-wx-NsM" kind="relationship" relationship="rootViewController" id="X7J-tH-ycF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9A-Eg-9aa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="964"/>
+        </scene>
         <!--Event Form View Controller-->
         <scene sceneID="PVi-Mp-L7M">
             <objects>
                 <viewController id="pnA-m0-NTT" customClass="EventFormViewController" customModule="CIS55ActivityPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="j15-rZ-qJh"/>
-                        <viewControllerLayoutGuide type="bottom" id="an2-MF-5g7"/>
+                        <viewControllerLayoutGuide type="top" id="gbp-NO-k03"/>
+                        <viewControllerLayoutGuide type="bottom" id="oYU-uR-dsI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gDj-n2-mWL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUa-fu-oNk">
-                                <rect key="frame" x="133" y="139" width="36" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day of Week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUa-fu-oNk">
+                                <rect key="frame" x="104" y="139" width="106" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-85-poj">
-                                <rect key="frame" x="113" y="199" width="80" height="21"/>
+                                <rect key="frame" x="113" y="204" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,7 +189,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb3-MK-eaV">
-                                <rect key="frame" x="115" y="268" width="73" height="21"/>
+                                <rect key="frame" x="115" y="273" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,7 +201,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ztx-Qb-gbJ">
-                                <rect key="frame" x="102" y="101" width="100" height="30"/>
+                                <rect key="frame" x="23" y="96" width="274" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -139,14 +236,11 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tZD-5h-Iwr" userLabel="endTimePicker">
                                 <rect key="frame" x="-16" y="342" width="320" height="162"/>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SG-oG-RdW">
-                                <rect key="frame" x="104" y="161" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SG-oG-RdW">
+                                <rect key="frame" x="67" y="161" width="180" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-MA-mXb" userLabel="startTimePicker">
-                                <rect key="frame" x="-16" y="342" width="320" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ke-PE-asG">
                                 <rect key="frame" x="132" y="495" width="44" height="30"/>
                                 <state key="normal" title="Delete">
@@ -165,6 +259,9 @@
                                     <action selector="pressedCancel:" destination="pnA-m0-NTT" eventType="touchUpInside" id="gTi-pV-sDg"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-MA-mXb" userLabel="startTimePicker">
+                                <rect key="frame" x="-16" y="342" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -196,10 +293,11 @@
             </objects>
             <point key="canvasLocation" x="985" y="275"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ActivityNav-->
         <scene sceneID="0wA-b4-MOS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lfw-lz-lOO" sceneMemberID="viewController">
+                <navigationController title="ActivityNav" automaticallyAdjustsScrollViewInsets="NO" id="lfw-lz-lOO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Activity Planner" image="first" id="6Cb-AE-sWj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0hJ-tW-Y7K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -215,6 +313,14 @@
             <point key="canvasLocation" x="121" y="275"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DeAnzaLogo.png" width="72" height="90"/>
+        <image name="FallayeDiallo.jpg" width="802" height="531"/>
+        <image name="first" width="30" height="30"/>
+        <image name="headshot.jpg" width="160" height="120"/>
+        <image name="profile.jpg" width="637" height="960"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -16,7 +16,11 @@
 		D025BBDE1AB665D600C19E14 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025BBDA1AB665D600C19E14 /* Event.swift */; };
 		D025BBDF1AB665D600C19E14 /* CalendarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025BBDB1AB665D600C19E14 /* CalendarCollectionViewController.swift */; };
 		D025BBE01AB665D600C19E14 /* CalanderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025BBDC1AB665D600C19E14 /* CalanderCollectionViewCell.swift */; };
-		D025BBE21AB6664900C19E14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025BBE11AB6664900C19E14 /* Main.storyboard */; };
+		D025BC2B1ABDB79C00C19E14 /* DeAnzaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D025BC2A1ABDB79C00C19E14 /* DeAnzaLogo.png */; };
+		D025BC2E1ABDB7AC00C19E14 /* headshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D025BC2C1ABDB7AC00C19E14 /* headshot.jpg */; };
+		D025BC2F1ABDB7AC00C19E14 /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D025BC2D1ABDB7AC00C19E14 /* profile.jpg */; };
+		D025BC311ABDB80200C19E14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D025BC301ABDB80200C19E14 /* Main.storyboard */; };
+		D025BC331ABDB8B600C19E14 /* FallayeDiallo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D025BC321ABDB8B600C19E14 /* FallayeDiallo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +47,11 @@
 		D025BBDA1AB665D600C19E14 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D025BBDB1AB665D600C19E14 /* CalendarCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewController.swift; sourceTree = "<group>"; };
 		D025BBDC1AB665D600C19E14 /* CalanderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalanderCollectionViewCell.swift; sourceTree = "<group>"; };
-		D025BBE11AB6664900C19E14 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D025BC2A1ABDB79C00C19E14 /* DeAnzaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeAnzaLogo.png; sourceTree = "<group>"; };
+		D025BC2C1ABDB7AC00C19E14 /* headshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headshot.jpg; sourceTree = "<group>"; };
+		D025BC2D1ABDB7AC00C19E14 /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
+		D025BC301ABDB80200C19E14 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D025BC321ABDB8B600C19E14 /* FallayeDiallo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FallayeDiallo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +93,13 @@
 		D025BBB31AB6659B00C19E14 /* CIS55ActivityPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				D025BC321ABDB8B600C19E14 /* FallayeDiallo.jpg */,
 				D025BBD91AB665D600C19E14 /* EventFormViewController.swift */,
-				D025BBE11AB6664900C19E14 /* Main.storyboard */,
+				D025BC2A1ABDB79C00C19E14 /* DeAnzaLogo.png */,
 				D025BBDA1AB665D600C19E14 /* Event.swift */,
+				D025BC301ABDB80200C19E14 /* Main.storyboard */,
+				D025BC2C1ABDB7AC00C19E14 /* headshot.jpg */,
+				D025BC2D1ABDB7AC00C19E14 /* profile.jpg */,
 				D025BBDB1AB665D600C19E14 /* CalendarCollectionViewController.swift */,
 				D025BBDC1AB665D600C19E14 /* CalanderCollectionViewCell.swift */,
 				D025BBB61AB6659B00C19E14 /* AppDelegate.swift */,
@@ -204,9 +216,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D025BBE21AB6664900C19E14 /* Main.storyboard in Resources */,
+				D025BC2F1ABDB7AC00C19E14 /* profile.jpg in Resources */,
+				D025BC2B1ABDB79C00C19E14 /* DeAnzaLogo.png in Resources */,
+				D025BC2E1ABDB7AC00C19E14 /* headshot.jpg in Resources */,
+				D025BC311ABDB80200C19E14 /* Main.storyboard in Resources */,
 				D025BBC41AB6659B00C19E14 /* LaunchScreen.xib in Resources */,
 				D025BBC11AB6659B00C19E14 /* Images.xcassets in Resources */,
+				D025BC331ABDB8B600C19E14 /* FallayeDiallo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +429,7 @@
 				D025BBD51AB6659B00C19E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D025BBD61AB6659B00C19E14 /* Build configuration list for PBXNativeTarget "CIS55ActivityPlannerTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +438,7 @@
 				D025BBD81AB6659B00C19E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

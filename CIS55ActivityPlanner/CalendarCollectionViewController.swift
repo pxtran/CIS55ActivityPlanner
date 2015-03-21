@@ -15,13 +15,16 @@ let reuseIdentifier = "calendarCell"
 class CalendarViewControllerCollectionViewController: UICollectionViewController, NSCoding {
 
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let colors = ["blue", "green", "yellow", "orange", "purple", "cyan", "magenta"]
 
     var events: [Event] = []
     var cellMap = Dictionary<Int, String>()
     var dayOffsetMap = Dictionary<String, Int>()
     var eventMap = Dictionary<String, Event>()
+    var colorMap = Dictionary<String, UIColor>()
     var selectedEvents: [Event] = []
     var selectedIndex: Int!
+    var selectColor: UIColor!
 
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
@@ -82,6 +85,27 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
         //1F63FF
         self.collectionView?.backgroundColor = UIColor(red: 0x1F/255,
             green: 0x63/255, blue: 0xFF/255, alpha: 1.0)
+
+        for c in colors {
+            switch c {
+            case "blue":
+                colorMap[c] = UIColor.blueColor()
+            case "green":
+                colorMap[c] = UIColor.greenColor()
+            case "orange":
+                colorMap[c] = UIColor.orangeColor()
+            case "yellow":
+                colorMap[c] = UIColor.yellowColor()
+            case "purple":
+                colorMap[c] = UIColor.purpleColor()
+            case "magenta":
+                colorMap[c] = UIColor.magentaColor()
+            case "cyan":
+                colorMap[c] = UIColor.cyanColor()
+            default:
+                println("All colors exhausted")
+            }
+        }
 
     }
 
@@ -200,6 +224,14 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
             cell.cellText.textColor = UIColor.blackColor()
 
             if let eventNames = cellMap[index] {
+                let eventSplit = split(eventNames) {$0 == "\n"}
+                if eventSplit.count > 1 {
+                    cell.layer.backgroundColor = UIColor.redColor().CGColor
+                } else {
+                    let c = eventMap[eventNames]?.color!
+                    let cellColor: UIColor = colorMap[c!]!
+                    cell.layer.backgroundColor =  cellColor.CGColor
+                }
                 cell.cellText.text = eventNames
             } else {
                 cell.cellText.text = ""
@@ -218,6 +250,7 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
             //do nothing
         } else {
             selectedEvents.removeAll(keepCapacity: false)
+            selectColor = UIColor(CGColor:cell.layer.backgroundColor)
             cell.layer.backgroundColor = UIColor.lightTextColor().CGColor
             let cellT = String(cell.cellText.text!)
             let eventsplit = split(cellT) {$0 == "\n"}
@@ -235,7 +268,7 @@ class CalendarViewControllerCollectionViewController: UICollectionViewController
         let index = indexPath.row
 
         if !((index >= 0 && index <= 7) || index % 8 == 0) {
-            cell?.layer.backgroundColor = UIColor.whiteColor().CGColor
+            cell?.layer.backgroundColor = selectColor.CGColor//UIColor.whiteColor().CGColor
         }
     }
 
